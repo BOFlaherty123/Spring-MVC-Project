@@ -3,14 +3,18 @@
 <html>
 
     <head>
-
         <title>Example Page</title>
-
     </head>
 
     <body>
 
-        <h2>Example Page</h2>
+    <h2>Example Page</h2>
+
+    <c:forEach items="${data}" var="data">
+        <c:out value="${data.name}"/>
+        <br/>
+        <c:out value="${data.value}"/>
+    </c:forEach>
 
     </body>
 

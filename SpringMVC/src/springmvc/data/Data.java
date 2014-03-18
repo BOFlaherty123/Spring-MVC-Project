@@ -9,8 +9,8 @@ package springmvc.data;
  */
 public class Data {
 
-    String name;
-    String value;
+    private String name;
+    private String value;
 
     public Data(String name, String value) {
         this.name = name;
