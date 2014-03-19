@@ -4,7 +4,7 @@ import org.junit.Test;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.ui.ModelMap;
 import springmvc.data.Data;
-import springmvc.data.DataRespository;
+import springmvc.data.DataRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,16 +27,16 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 public class ExampleControllerTest {
 
-    private DataRespository dataRespository = mock(DataRespository.class);
+    private DataRepository dataRepository = mock(DataRepository.class);
     private ModelMap model = mock(ModelMap.class);
 
     @Test
     public void exampleMethodTest() {
 
         List<Data> dataList = addData(3);
-        when(dataRespository.loadData()).thenReturn(dataList);
+        when(dataRepository.loadData()).thenReturn(dataList);
 
-        ExampleController controller = new ExampleController(dataRespository);
+        ExampleController controller = new ExampleController(dataRepository);
         assertEquals("example", controller.example(model));
     }
 
@@ -44,9 +44,9 @@ public class ExampleControllerTest {
     public void testExampleSpringMVCPage() throws Exception {
 
         List<Data> dataList = addData(10);
-        when(dataRespository.loadData()).thenReturn(dataList);
+        when(dataRepository.loadData()).thenReturn(dataList);
 
-        ExampleController controller = new ExampleController(dataRespository);
+        ExampleController controller = new ExampleController(dataRepository);
 
         MockMvc mockMvc = standaloneSetup(controller).build();
 
