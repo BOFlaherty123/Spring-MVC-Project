@@ -3,8 +3,8 @@ package springmvc.web;
 import org.junit.Test;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.ui.ModelMap;
-import springmvc.data.Data;
-import springmvc.data.DataRepository;
+import springmvc.model.data.Data;
+import springmvc.model.data.DataRepository;
 
 import java.util.ArrayList;
 import java.util.List;

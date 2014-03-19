@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import springmvc.data.Data;
-import springmvc.data.DataRepository;
+import springmvc.model.data.Data;
+import springmvc.model.data.DataRepository;
 
 import java.util.List;
 
@@ -64,8 +64,8 @@ public class ExampleController {
      *
      * 'defaultValue' is used to define a default value if the user does not specific a max or count value in the URL.
      *
-     * @param max - max value of data objects to be returned
-     * @param count number of data objects to be displayed
+     * @param max - max value of model objects to be returned
+     * @param count number of model objects to be displayed
      * @return
      */
     @RequestMapping(value="/queryParamter", method=RequestMethod.GET)
@@ -84,7 +84,7 @@ public class ExampleController {
      * @PathVariable indicates that whatever value is at the placeholder position ({...} in the request path will be passed
      * into the handler method's 'id' parameter.
      *
-     * @param id value (id) of the data object to be displayed
+     * @param id value (id) of the model object to be displayed
      */
     @RequestMapping(value="/requestMapping/{id}")
     public void exampleOfRequestMapping(@PathVariable("id") String id) {

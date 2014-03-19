@@ -18,7 +18,7 @@ public class SpringMVCInitializer extends AbstractAnnotationConfigDispatcherServ
      */
 
     /**
-     * Loads the applications context (ContextLoadListener) which is used to load middle-tier and data-tier components
+     * Loads the applications context (ContextLoadListener) which is used to load middle-tier and model-tier components
      * that drive the backend of the application.
      *
      * @return

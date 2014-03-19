@@ -25,7 +25,6 @@ public class FormControllerTest {
         MockMvc mockmvc = standaloneSetup(controller).build();
 
         mockmvc.perform(get("/form"))
-                .andExpect(status().is(200))
                 .andExpect(view().name("displayForm"));
 
     }
