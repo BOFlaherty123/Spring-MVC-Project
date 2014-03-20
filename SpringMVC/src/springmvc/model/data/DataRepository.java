@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Description Here
+ * Data Repository class to load 'mock' data to the controller
  *
  * @author Benjamin O'Flaherty
  * @date Created on: 18/03/14

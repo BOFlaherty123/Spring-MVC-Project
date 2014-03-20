@@ -1,7 +1,7 @@
 package springmvc.model.data;
 
 /**
- * Description Here
+ *  Data Model Object
  *
  * @author Benjamin O'Flaherty
  * @date Created on: 18/03/14

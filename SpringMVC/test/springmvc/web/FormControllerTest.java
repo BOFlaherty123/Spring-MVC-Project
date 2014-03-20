@@ -24,7 +24,7 @@ public class FormControllerTest {
 
         MockMvc mockmvc = standaloneSetup(controller).build();
 
-        mockmvc.perform(get("/form"))
+        mockmvc.perform(get("/user"))
                 .andExpect(view().name("displayForm"));
 
     }
@@ -36,7 +36,7 @@ public class FormControllerTest {
 
         MockMvc mockmvc = standaloneSetup(controller).build();
 
-        mockmvc.perform(post("/submit")
+        mockmvc.perform(post("/user")
                 .param("firstName", "Joe")
                 .param("lastName", "Bloggs")
                 .param("username", "JoeBloggs")

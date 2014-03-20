@@ -13,7 +13,7 @@ import springmvc.model.data.DataRepository;
 import java.util.List;
 
 /**
- * Description Here
+ * Example Spring MVC controller (basic setup)
  *
  * @author Benjamin O'Flaherty
  * @date Created on: 18/03/14

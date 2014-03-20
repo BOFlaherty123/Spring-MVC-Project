@@ -16,10 +16,10 @@
 
         <form:form method="POST" commandName="user">
 
-            First Name: <form:input path="firstName"/> <form:errors path="firstName" cssClass="error"/> <br/>
-            Last Name: <form:input path="lastName"/> <form:errors path="lastName" cssClass="error"/> <br/>
-            Username: <form:input path="username"/> <form:errors path="username" cssClass="error"/> <br/>
-            Password: <form:password path="password"/> <form:errors path="password" cssClass="error"/> <br/>
+            <form:label path="firstName" cssErrorClass="error">First Name</form:label>:<form:input path="firstName" cssErrorClass="error"/> <br/>
+            <form:label path="lastName" cssErrorClass="error">Last Name</form:label>:<form:input path="lastName" cssErrorClass="error"/> <br/>
+            <form:label path="username" cssErrorClass="error">Username</form:label>:<form:input path="username" cssErrorClass="error"/> <br/>
+            <form:label path="password" cssErrorClass="error">Password</form:label>:<form:password path="password" cssErrorClass="error"/> <br/>
 
             <input type="submit" value="Submit"/>
 

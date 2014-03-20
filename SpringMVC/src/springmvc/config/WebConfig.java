@@ -1,8 +1,10 @@
 package springmvc.config;
 
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -68,6 +70,21 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+    }
+
+    /**
+     * Messages to support internationalization/localization.
+     *
+     * .setBeanname() - declares the path to the messages.properties file. In this case the file is located at
+     * /WEB-INF/messages/ with a file name of 'messages'. The MessageSource() method will append .properties
+     *
+     */
+    @Bean
+    public MessageSource messageSource() {
+        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+        messageSource.setBasename("/WEB-INF/messages/messages");
+        messageSource.setUseCodeAsDefaultMessage(true);
+        return messageSource;
     }
 
 }

@@ -13,7 +13,7 @@ import javax.validation.Valid;
 import static java.lang.String.format;
 
 /**
- * Description Here
+ * Form Controller used to display, validate and submit a Spring Form.
  *
  * @author Benjamin O'Flaherty
  * @date Created on: 19/03/14
