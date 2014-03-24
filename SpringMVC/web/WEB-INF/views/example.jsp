@@ -17,6 +17,15 @@
             <spring:message code="msg.data.value"/> <c:out value="${data.value}"/>
         </c:forEach>
 
+        <h3>User Submitted Details</h3>
+
+        <p>
+            <b>firstName: </b> ${userObj.firstName} <br/>
+            <b>lastName:</b> ${userObj.lastName} <br/>
+            <b>username: </b> ${userObj.username} <br/>
+            <b>password: </b> ${userObj.password} <br/>
+        </p>
+
     </body>
 
 </html>
