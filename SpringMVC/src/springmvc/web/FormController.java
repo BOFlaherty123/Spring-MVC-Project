@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import springmvc.model.User;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import static java.lang.String.format;
@@ -28,9 +29,19 @@ public class FormController {
      * @return jsp page (displayForm.jsp)
      */
     @RequestMapping(value="/user", method=RequestMethod.GET)
-    public String displayForm(ModelMap model) {
+    public String displayForm(ModelMap model, HttpServletRequest request) {
 
         model.addAttribute(new User());
+
+        // @SessionAttributes example - determine how we can extract data from the session (extract UserObject)
+        User user = (User) request.getSession().getAttribute("userObj");
+
+        if(user != null) {
+            System.out.println(user.getFirstName());
+            System.out.println(user.getLastName());
+            System.out.println(user.getUsername());
+            System.out.println(user.getPassword());
+        }
 
         return "displayForm";
     }

@@ -4,14 +4,14 @@
 <html>
 
     <head>
-        <title>Example Page</title>
+        <title>User Failed</title>
     </head>
 
     <body>
 
-    <h2><spring:message code="msg.yourAccount"/></h2>
+        <h2>User Failed</h2>
 
-        <c:out value="${userName}"/>
+        <a href="/SringMVC/example">Back</a>
 
     </body>
 

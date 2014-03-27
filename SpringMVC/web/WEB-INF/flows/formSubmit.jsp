@@ -4,14 +4,18 @@
 <html>
 
     <head>
-        <title>Example Page</title>
+        <title>Form Submit</title>
     </head>
 
     <body>
 
-    <h2><spring:message code="msg.yourAccount"/></h2>
+        <h2>User Successfully Registered!</h2>
 
-        <c:out value="${userName}"/>
+        <b>FirstName:</b> ${user.firstName} <br/>
+        <b>LastName:</b> ${user.lastName} <br/>
+        <b>Username:</b> ${user.username} <br/>
+
+        <a href='${flowExecutionUrl}&_eventId=finished'>Finish</a>
 
     </body>
 

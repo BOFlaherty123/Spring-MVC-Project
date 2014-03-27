@@ -55,6 +55,13 @@ public class ExampleController {
         return "example";
     }
 
+    @RequestMapping(value="/genericURL/*")
+    public String genericURL() {
+        System.out.println("GenericURL Method Hit");
+
+        return "example";
+    }
+
     /**
      * Query Parameter Example
      *

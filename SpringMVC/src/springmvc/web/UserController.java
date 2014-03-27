@@ -36,4 +36,19 @@ public class UserController {
         return modelAndView;
     }
 
+    /*
+        Spring Web Flow User Methods
+     */
+    public boolean saveUser(User user) {
+        System.out.println(".saveUser()");
+
+        if(user.getFirstName() != null) {
+            System.out.println(user.getFirstName());
+            System.out.println(user.getLastName());
+            System.out.println(user.getUsername());
+        }
+
+        return true;
+    }
+
 }

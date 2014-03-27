@@ -1,6 +1,7 @@
 package springmvc.model;
 
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 
 /**
  * Description Here
@@ -9,7 +10,9 @@ import javax.validation.constraints.Size;
  * @date Created on: 19/03/14
  * @project SpringMVC
  */
-public class User {
+public class User implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Size(min=1, max=30, message="{firstName.size}")
     private String firstName;

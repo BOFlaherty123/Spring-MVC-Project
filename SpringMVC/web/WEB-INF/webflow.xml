@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:flow="http://www.springframework.org/schema/webflow-config"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/webflow-config http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd">
+
+    <!--
+        Flow Executor
+            - The flow executor drives the execution of a flow.
+            - When a user enters a flow, the flow executor creates and launches an instance of the flow execution for that user
+            - When the flow pauses (such as when a view is presented to the user), the flow executor also resumes the flow
+              once the user has taken some action
+    -->
+
+    <flow:flow-executor id="flowExecutor"/>
+
+    <!--
+       Flow Registry
+            - A flow registry's job is to load flow definitions and make them available to the flow executor.
+            - We can configure a flow registry in the Spring configuration with the <flow:flow-registry/> element
+            - We can use the following flow-location syntax:
+                - flow-location-pattern
+                - flow-location (path)
+                - flow-location (with an id)
+
+    -->
+
+    <flow:flow-registry id="flowRegistry" base-path="/WEB-INF/flows">
+        <flow:flow-location path="userSaved.xml" id="userSaved"/>
+    </flow:flow-registry>
+
+    <!-- Enables FlowHandlers -->
+    <bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
+        <property name="flowRegistry" ref="flowRegistry"/>
+        <property name="order" value="-1" />
+    </bean>
+
+    <bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
+        <property name="flowExecutor" ref="flowExecutor"/>
+    </bean>
+
+</beans>

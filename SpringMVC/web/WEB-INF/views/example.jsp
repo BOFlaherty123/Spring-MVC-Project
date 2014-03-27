@@ -26,6 +26,10 @@
             <b>password: </b> ${userObj.password} <br/>
         </p>
 
+
+        <h3>Web Flow Execution Link</h3>
+        <a href="/SpringMVC/userSaved">Launch Web Flow</a>
+
     </body>
 
 </html>

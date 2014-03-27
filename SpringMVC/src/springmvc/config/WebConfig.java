@@ -4,6 +4,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
@@ -23,6 +24,13 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableWebMvc
 // Ensures that the DispatcherServlet knows which packages in the application to scan for annotations (@Controller etc)
 @ComponentScan("springmvc.web")
+/**
+ The latest Spring Webflow does not support defining flows through @Configuration, you will have to define the flows as XML and import it into a @Configuration file.
+
+ You can use @ImportResource to import a webflow.xml file into a @Configuration File: @ImportResource("/WEB-INF/web/webflow.xml")
+
+ */
+@ImportResource("/WEB-INF/webflow.xml")
 public class WebConfig extends WebMvcConfigurerAdapter {
 
     /**

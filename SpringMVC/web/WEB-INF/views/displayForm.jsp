@@ -25,6 +25,14 @@
 
         </form:form>
 
+        <h2>User Session Object Display (Test)</h2>
+        <p>
+            <b>firstName: </b> ${userObj.firstName} <br/>
+            <b>lastName:</b> ${userObj.lastName} <br/>
+            <b>username: </b> ${userObj.username} <br/>
+            <b>password: </b> ${userObj.password} <br/>
+        </p>
+
     </body>
 
 </html>
