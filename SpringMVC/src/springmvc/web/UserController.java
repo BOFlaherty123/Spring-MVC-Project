@@ -21,6 +21,9 @@ import springmvc.model.User;
 @SessionAttributes("userObj")
 public class UserController {
 
+    private final static String ACCEPTABLE_USERNAME = "username";
+    private final static String ACCEPTABLE_PASSWORD = "password";
+
     @RequestMapping(value="/userDisplay")
     public ModelAndView userPage() {
         return new ModelAndView("userDisplay", "user-entity", new User());
@@ -42,6 +45,7 @@ public class UserController {
     public boolean saveUser(User user) {
         System.out.println(".saveUser()");
 
+        // Could save the User object to the database here.
         if(user.getFirstName() != null) {
             System.out.println(user.getFirstName());
             System.out.println(user.getLastName());
@@ -49,6 +53,23 @@ public class UserController {
         }
 
         return true;
+    }
+
+    public boolean isUserRegistered(User user) {
+        System.out.println(".isUserRegistered()");
+
+        boolean isUserRegistered = false;
+
+        if(user.getUsername().equals(ACCEPTABLE_USERNAME) &&
+                user.getPassword().equals(ACCEPTABLE_PASSWORD)) {
+
+            System.out.println("username: " + user.getUsername());
+            System.out.println("password: " + user.getPassword());
+
+            isUserRegistered = true;
+        }
+
+        return isUserRegistered;
     }
 
 }

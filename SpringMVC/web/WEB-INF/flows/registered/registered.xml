@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+        http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+
+    <var name="user" class="springmvc.model.User"/>
+
+    <view-state id="alreadyRegistered" model="user">
+        <transition on="submit" to="isUserRegistered"/>
+    </view-state>
+
+    <decision-state id="isUserRegistered">
+        <if test="userController.isUserRegistered(user)" then="userAlreadyRegistered" else="alreadyRegistered"/>
+    </decision-state>
+
+    <view-state id="userAlreadyRegistered">
+        <transition to="endState"/>
+    </view-state>
+
+    <end-state id="endState"/>
+
+</flow>

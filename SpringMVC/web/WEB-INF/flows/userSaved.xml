@@ -5,22 +5,22 @@
 
     <var name="user" class="springmvc.model.User"/>
 
+    <decision-state id="userDecision">
+        <if test="userController.saveUser(user)" then="userForm" else="userFailed"/>
+    </decision-state>
+    
+    <view-state id="userForm" model="user">
+        <transition on="submit" to="userRegistered"/>
+        <transition on="alreadyRegistered" to="registered"/>
+    </view-state>
+
     <action-state id="saveUser">
-        <evaluate expression="userController.saveUser(user)"/>
         <transition to="userDecision"/>
     </action-state>
 
-    <decision-state id="userDecision">
-        <if test="userController.saveUser(user)" then="userSaved" else="userFailed"/>
-    </decision-state>
-    
-    <view-state id="userSaved" model="user">
-        <transition on="submit" to="formSubmit"/>
-    </view-state>
-
     <view-state id="userFailed"/>
 
-    <view-state id="formSubmit">
+    <view-state id="userRegistered">
         <on-entry>
             <evaluate expression="userController.saveUser(user)" />
         </on-entry>
@@ -28,5 +28,10 @@
     </view-state>
 
     <end-state id="endState"/>
+
+    <subflow-state id="registered" subflow="registered">
+        <transition on="submit" to="alreadyRegistered"/>
+    </subflow-state>
+
 
 </flow>
